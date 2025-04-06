@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Tower Defense</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Basic reset and canvas styling */
+        body { margin: 0; padding: 0; overflow: hidden; }
+        #game-canvas { display: block; width: 100vw; height: 100vh; }
+        #ui-overlay {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 3px;
+            font-family: sans-serif;
+            z-index: 10; /* Ensure UI is above canvas */
+        }
+    </style>
+</head>
+<body>
+    <canvas id="game-canvas"></canvas>
+    <div id="ui-overlay">
+        <div>Gold: <span id="gold-display">0</span></div>
+        <button id="build-turret-button">Build Turret (50G)</button>
+        <div id="build-feedback" style="color: yellow;"></div>
+        <hr style="margin: 5px 0;"> <!-- Separator -->
+        <div>Lives: <span id="lives-display">0</span></div>
+        <div>Wave: <span id="wave-display">0</span></div>
+        <button id="start-wave-button" disabled>Start Next Wave</button>
+        <div id="game-status" style="color: red; font-weight: bold;"></div>
+    </div>
+    <!-- Basic Upgrade UI (initially hidden) -->
+    <div id="upgrade-ui" style="display: none; position: absolute; background: rgba(0,0,0,0.7); padding: 10px; border: 1px solid white; top: 150px; left: 10px; color: white; font-family: sans-serif; z-index: 11;">
+        <h4>Tower Upgrade</h4>
+        <p>Level: <span id="upgrade-level">1</span></p>
+        <p>Cost: <span id="upgrade-cost">?</span>G</p>
+        <button id="upgrade-button">Upgrade</button>
+        <button id="close-upgrade-button">Close</button>
+    </div>
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://unpkg.com/three@0.163.0/build/three.module.js",
+            "three/addons/": "https://unpkg.com/three@0.163.0/examples/jsm/"
+        }
+    }
+    </script>
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>

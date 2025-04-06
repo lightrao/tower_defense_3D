@@ -1,0 +1,27 @@
+/* Basic reset */
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Prevent scrollbars */
+}
+
+/* Make canvas fill the viewport */
+#game-canvas {
+    display: block; /* Remove extra space below canvas */
+    width: 100vw;
+    height: 100vh;
+}
+
+/* Style the UI overlay */
+#ui-overlay {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: rgba(50, 50, 50, 0.7); /* Semi-transparent dark background */
+    color: white;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    z-index: 10; /* Ensure it's above the canvas */
+}
